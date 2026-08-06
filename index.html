@@ -1,0 +1,305 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>project-react</title>
+
+      <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: blue;
+      color: red;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Top Header */
+    header {
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #111111;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    /* Main Container */
+    main {
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Card Container Base */
+    .card {
+      border: 1px solid #111111;
+      border-radius: 12px;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    /* Add Project Section */
+    .add-project-card h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #111111;
+      border-radius: 8px;
+      background-color: #ffffff;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .form-group textarea {
+      height: 80px;
+      resize: vertical;
+    }
+
+    .btn-add {
+      background-color: #ffffff;
+      border: 1px solid #111111;
+      border-radius: 8px;
+      padding: 8px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-add:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Search & List Section */
+    .showcase-card {
+      padding: 0;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    .search-container {
+      padding: 15px 20px;
+      border-bottom: 1px solid #111111;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #111111;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    /* Individual Project Item */
+    .project-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .project-icon {
+      width: 50px;
+      height: 50px;
+      border: 1px solid #111111;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background-color: #ffffff;
+    }
+
+    /* SVG Cross Graphic inside Icon */
+    .project-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: #111111;
+      stroke-width: 1.5;
+    }
+
+    .project-info h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .project-info p {
+      font-size: 13px;
+      color: #333333;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header>
+    <h1>Personal Project Showcase App</h1>
+  </header>
+
+  <main>
+    
+    <section class="card add-project-card">
+      <h2>Add Project</h2>
+      <form id="project-form">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" required></textarea>
+        </div>
+        <button type="submit" class="btn-add">Add</button>
+      </form>
+    </section>
+
+    
+    <section class="card showcase-card">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search" 
+          class="search-input" 
+          placeholder="Search Projects"
+        >
+      </div>
+      <div class="project-list" id="project-list">
+        <!-- Default Projects -->
+        <div class="project-item">
+          <div class="project-icon">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </div>
+          <div class="project-info">
+            <h3>Project 1</h3>
+            <p>Description of the project</p>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-icon">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </div>
+          <div class="project-info">
+            <h3>Project 2</h3>
+            <p>Description of the project</p>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-icon">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </div>
+          <div class="project-info">
+            <h3>Project 3</h3>
+            <p>Description of the project</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+  <script>
+    const form = document.getElementById('project-form');
+    const titleInput = document.getElementById('title');
+    const descInput = document.getElementById('description');
+    const searchInput = document.getElementById('search');
+    const projectList = document.getElementById('project-list');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const title = titleInput.value.trim();
+      const description = descInput.value.trim();
+
+      if (title && description) {
+        const newItem = document.createElement('div');
+        newItem.classList.add('project-item');
+        newItem.innerHTML = `
+          <div class="project-icon">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </div>
+          <div class="project-info">
+            <h3>${title}</h3>
+            <p>${description}</p>
+          </div>
+        `;
+
+        projectList.appendChild(newItem);
+
+        // Reset form
+        titleInput.value = '';
+        descInput.value = '';
+      }
+    });
+
+    
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      const items = projectList.querySelectorAll('.project-item');
+
+      items.forEach(item => {
+        const title = item.querySelector('h3').textContent.toLowerCase();
+        const desc = item.querySelector('p').textContent.toLowerCase();
+
+        if (title.includes(query) || desc.includes(query)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <main>
+      <section class="card add-project-card"></section>
+    </main>
+  </body>
+</html>
